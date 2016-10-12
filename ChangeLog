@@ -1,0 +1,15 @@
+0.5.1
+1. Translated comments from Russian to English.
+2. Dropped use and support for cgi_installstr() function - now
+   using standard libc strdup().
+3. Renamed sample source file and got rid of its' header file.
+4. Updated Makefile.
+0.5.0
+1. Added support for multiple values of single CGI variable.
+2. Added support for file upload.
+3. Backwards compatibility with 0.4.x versions is broken
+0.4.7
+1. Added support for multipart query type.
+2. Miscellaneous bugfixes.
+0.4.6
+1. Initial public available release.
