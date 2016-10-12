@@ -1,6 +1,6 @@
 CGILIB		= libcgi.a
 CC		= gcc
-CFLAGS		= -Wall -O2 -ansi -pedantic -march=pentium3
+CFLAGS		= -Wall -O2 -ansi -pedantic
 INCLUDES	= .
 #DEFINES		= -DCGI_DEBUG
 AR		= ar
