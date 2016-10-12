@@ -1,0 +1,25 @@
+CC		= gcc
+CGILIB		= libcgi/libcgi.a
+CFLAGS		= -Wall -O2
+INCLUDES	= .
+LDFLAGS		= 
+#DEFINES		= -DCGI_DEBUG
+PROGRAM		= sample.cgi
+SOURCES		= sample.c
+OBJECTS		= $(SOURCES:.c=.o)
+
+all: $(CGILIB) $(PROGRAM)
+
+$(CGILIB):
+	make -C libcgi
+
+$(PROGRAM): $(OBJECTS)
+	$(CC) -o $@ $(CFLAGS) $(OBJECTS) $(CGILIB) $(LDFLAGS)
+
+$(OBJECTS): $(SOURCES) $(HEADERS)
+	$(CC) -c $(DEFINES) $(CFLAGS) $(SOURCES)
+
+clean:
+	make -C libcgi clean
+	rm -f $(OBJECTS) $(PROGRAM)
+
