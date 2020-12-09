@@ -39,7 +39,7 @@
 /* character set used in CGI application */
 #define DOC_CHARSET	"utf-8"
 /* your CGI application name - used in HTML header and error page */
-#define APP_NAME	"Inventory"
+#define APP_NAME	"MyApp"
 /* enables library debugging routines *
 #define CGI_DEBUG
 */
