@@ -248,6 +248,11 @@ int cgi_process_multipart_query(char *query, int length, char *content_type_stri
 			instance->filename = (char **)cgi_xalloc(sizeof(char *), "CGI file names array.");
 			instance->mime_type = (char **)cgi_xalloc(sizeof(char *), "CGI MIME types array.");
 		}
+		/* 09.12.2020 08:53 reset just allocated */
+		instance->length[instance->quantity - 1] = NULL;
+		instance->cgival[instance->quantity - 1] = NULL;
+		instance->filename[instance->quantity - 1] = NULL;
+		instance->mime_type[instance->quantity - 1] = NULL;
 		/* shift pointer for the length of CGI variable name + double quote */
 		offset += m_data->offset + 1;
 		/* each call to fill_data allocates memory for this structure */
@@ -431,6 +436,9 @@ int cgi_process_plain_query(char *query, int length)
 					instance->filename = (char **)cgi_xalloc(sizeof(char *), "CGI file names array.");
 					instance->mime_type = (char **)cgi_xalloc(sizeof(char *), "CGI MIME types array.");
 				}
+				/* 09.12.2020 08:53 reset just allocated */
+				instance->length[instance->quantity - 1] = NULL;
+				instance->cgival[instance->quantity - 1] = NULL;
 				instance->filename[instance->quantity - 1] = NULL;
 				instance->mime_type[instance->quantity - 1] = NULL;
 				/* get "variable value" pair into structure */
@@ -702,7 +710,7 @@ void cgi_treeprint(void)
 		{
 			printf("\t[%4.4d] Filename: %s Length: %d MIME Type: %s Value: ", counter,
 			link->filename[counter] ? link->filename[counter] : none,
-			link->length[counter] ? *(link->length[counter]) : 0,
+			link->length[counter] ? (int)*(link->length[counter]) : 0,
 			link->mime_type[counter] ? link->mime_type[counter] : none);
 			if(link->cgival[counter])
 				fwrite(link->cgival[counter], sizeof(char), *(link->length[counter]), stdout);
