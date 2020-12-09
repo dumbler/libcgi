@@ -9,18 +9,16 @@ ARFLAGS		= rc
 SOURCES		= libcgi.c
 HEADERS		= libcgi.h
 OBJECTS		= $(SOURCES:.c=.o)
-OUTPUT		= ../../../objects
 
 all: $(CGILIB)
 
 $(CGILIB): $(OBJECTS)
 	$(AR) $(ARFLAGS) $@ $(OBJECTS)
-	mv -f $(CGILIB) $(OUTPUT)
 
 $(OBJECTS): $(SOURCES) $(HEADERS)
 	$(CC) -c $(CFLAGS) -I$(INCLUDES) $(SOURCES) $(DEFINES)
 
 clean:
 	cd $(OUTPUT) && rm -f $(CGILIB)
-	rm -f $(OBJECTS)
+	rm -f $(OBJECTS) $(CGILIB)
 
