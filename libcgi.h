@@ -29,20 +29,20 @@
 #endif	/* __STDC__ */
 
 /* maximum length of simple query string parameter with consideration of encoded symbols */
-#define PARAM_LENGTH	524288
+#define PARAM_LENGTH	765
 /* background color for HTML header and errors */
 #define BGCOLOR		"#ffffff"
 /* library name tag */
 #define LIB_NAME	"LibCGI"
 /* library version */
-#define LIB_VERSION	"0.5.1"
+#define LIB_VERSION	"0.5.2"
 /* character set used in CGI application */
 #define DOC_CHARSET	"utf-8"
 /* your CGI application name - used in HTML header and error page */
-#define APP_NAME	"OpenSoft.Org.Ru"
-/* enables library debugging routines */
+#define APP_NAME	"Inventory"
+/* enables library debugging routines *
 #define CGI_DEBUG
-/**/
+*/
 
 #ifndef TRUE
 #define TRUE		1
